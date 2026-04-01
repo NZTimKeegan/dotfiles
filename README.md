@@ -124,4 +124,17 @@ zsh/
 
 # Background
 
-TODO - explain why this approach, and why these tools
+This repo exists to keep environments consistent across machines, make new
+setups reproducible, and provide a checkpoint to roll back to if something
+breaks.
+
+[GNU Stow](https://www.gnu.org/software/stow/) manages the symlinks. It's
+simple: it mirrors a directory tree into a target directory, which is all that's
+needed here.
+
+The tools are chosen for being cross-platform and keyboard-driven:
+
+- **Neovim** - keyboard-driven editor with a broad plugin ecosystem
+- **Zellij** - terminal multiplexer; chosen over Tmux as a more modern alternative
+- **Alacritty** - minimal terminal emulator
+- **Zsh** - default shell on macOS
