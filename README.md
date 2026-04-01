@@ -5,6 +5,7 @@ all my devices, and manages the following:
 
 - git
 - nvim (see [nvim/README.md](nvim/README.md))
+- zellij
 - zsh
 
 ## Getting Started
@@ -51,13 +52,17 @@ cd ..
 rm -rf stow-2.4.1 stow-2.4.1.tar.gz
 ```
 
+#### Zellij
+
+Install from the [releases page](https://github.com/zellij-org/zellij/releases).
+
 ### Symlinking config
 
 Run the following command from the root of this repo to symlink the config
 into the right places:
 
 ```shell
-stow --target="$HOME" git nvim zsh
+stow --target="$HOME" git nvim zellij zsh
 ```
 
 # How To
@@ -77,6 +82,10 @@ git/
 
 nvim/
   .config/nvim/                 $HOME/.config/nvim/
+
+zellij/
+  .config/zellij/
+    config.kdl                  $HOME/.config/zellij/config.kdl
 
 zsh/
   .zshrc                        $HOME/.zshrc
