@@ -1,5 +1,4 @@
 # Dotfiles
----
 
 This is where I keep my dotfiles. The setup is intended to be portable across
 all my devices, and manages the following:
@@ -8,20 +7,32 @@ all my devices, and manages the following:
 
 ## Getting Started
 
-Clone this repo and run the following command to symlink the config into the
-right places:
+Clone this repo, then install [GNU Stow](https://www.gnu.org/software/stow/)
+by downloading and building from source:
 
 ```shell
-todo
+curl -O https://ftp.gnu.org/gnu/stow/stow-2.4.1.tar.gz
+tar xzf stow-2.4.1.tar.gz
+cd stow-2.4.1
+./configure --prefix="$HOME/.local"
+make install
+cd ..
+rm -rf stow-2.4.1 stow-2.4.1.tar.gz
+```
+
+Make sure `$HOME/.local/bin` is on your `PATH`, then run the following
+command from the root of this repo to symlink the config into the right
+places:
+
+```shell
+stow --target="$HOME" zsh
 ```
 
 # How To
----
 
 TODO - simple instructions for how to do common things on this project
 
 # Reference
----
 
 ## Symlink locations
 
@@ -30,11 +41,10 @@ host machine are:
 
 ```
 zsh/
-  .zshrc                $HOME/.zshrc
-  prompt_setup          $HOME/.config/zsh/prompt/prompt_setup
+  .zshrc                                         $HOME/.zshrc
+  .config/zsh/prompt/prompt_setup                $HOME/.config/zsh/prompt/prompt_setup
 ```
 
 # Background
----
 
 TODO - explain why this approach, and why these tools
