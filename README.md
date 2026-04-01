@@ -8,8 +8,10 @@ all my devices, and manages the following:
 
 ## Getting Started
 
-Clone this repo, then install [GNU Stow](https://www.gnu.org/software/stow/)
-by downloading and building from source:
+### Prerequisites
+
+Install [GNU Stow](https://www.gnu.org/software/stow/) by downloading and
+building from source:
 
 ```shell
 curl -O https://ftp.gnu.org/gnu/stow/stow-2.4.1.tar.gz
@@ -21,9 +23,19 @@ cd ..
 rm -rf stow-2.4.1 stow-2.4.1.tar.gz
 ```
 
-Make sure `$HOME/.local/bin` is on your `PATH`, then run the following
-command from the root of this repo to symlink the config into the right
-places:
+Make sure `$HOME/.local/bin` is on your `PATH`.
+
+Create `~/.gitconfig.local` with your email address for this device:
+
+```
+[user]
+    email = you@example.com
+```
+
+### Symlinking config
+
+Run the following command from the root of this repo to symlink the config
+into the right places:
 
 ```shell
 stow --target="$HOME" git zsh
@@ -43,10 +55,6 @@ host machine are:
 ```
 git/
   .gitconfig                    $HOME/.gitconfig
-
-~/.gitconfig.local              (not in repo, created manually per device)
-  [user]
-      email = you@example.com
 
 zsh/
   .zshrc                        $HOME/.zshrc
