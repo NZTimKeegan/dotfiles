@@ -3,6 +3,7 @@
 This is where I keep my dotfiles. The setup is intended to be portable across
 all my devices, and manages the following:
 
+- alacritty
 - git
 - nvim (see [nvim/README.md](nvim/README.md))
 - zellij
@@ -11,6 +12,10 @@ all my devices, and manages the following:
 ## Getting Started
 
 ### Prerequisites
+
+#### Alacritty
+
+Install from the [releases page](https://github.com/alacritty/alacritty/releases).
 
 #### Font
 
@@ -62,7 +67,7 @@ Run the following command from the root of this repo to symlink the config
 into the right places:
 
 ```shell
-stow --target="$HOME" git nvim zellij zsh
+stow --target="$HOME" alacritty git nvim zellij zsh
 ```
 
 # How To
@@ -77,6 +82,11 @@ The relationships between the files in this project and their targets on the
 host machine are:
 
 ```
+alacritty/
+  .config/alacritty/
+    alacritty.toml              $HOME/.config/alacritty/alacritty.toml
+    dracula.toml                $HOME/.config/alacritty/dracula.toml
+
 git/
   .gitconfig                    $HOME/.gitconfig
 
