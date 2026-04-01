@@ -10,6 +10,25 @@ all my devices, and manages the following:
 
 ### Prerequisites
 
+#### Font
+
+Download and install [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Iosevka.zip)
+
+#### Git
+
+Create `~/.gitconfig.local` with your email address for this device:
+
+```
+[user]
+    email = you@example.com
+```
+
+#### Path
+
+Make sure `$HOME/.local/bin` is on your `PATH`.
+
+#### Stow
+
 Install [GNU Stow](https://www.gnu.org/software/stow/) by downloading and
 building from source:
 
@@ -21,15 +40,6 @@ cd stow-2.4.1
 make install
 cd ..
 rm -rf stow-2.4.1 stow-2.4.1.tar.gz
-```
-
-Make sure `$HOME/.local/bin` is on your `PATH`.
-
-Create `~/.gitconfig.local` with your email address for this device:
-
-```
-[user]
-    email = you@example.com
 ```
 
 ### Symlinking config
