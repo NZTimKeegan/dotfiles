@@ -4,6 +4,7 @@ This is where I keep my dotfiles. The setup is intended to be portable across
 all my devices, and manages the following:
 
 - alacritty
+- claude
 - git
 - nvim (see [nvim/README.md](nvim/README.md))
 - zellij
@@ -67,7 +68,7 @@ Run the following command from the root of this repo to symlink the config
 into the right places:
 
 ```shell
-stow --target="$HOME" alacritty git nvim zellij zsh
+stow --target="$HOME" alacritty claude git nvim zellij zsh
 ```
 
 # How To
@@ -86,6 +87,11 @@ alacritty/
   .config/alacritty/
     alacritty.toml              $HOME/.config/alacritty/alacritty.toml
     dracula.toml                $HOME/.config/alacritty/dracula.toml
+
+claude/
+  .claude/
+    settings.json               $HOME/.claude/settings.json
+    statusline-command.sh       $HOME/.claude/statusline-command.sh
 
 git/
   .gitconfig                    $HOME/.gitconfig
