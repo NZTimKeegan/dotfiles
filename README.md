@@ -44,6 +44,10 @@ host machine are:
 git/
   .gitconfig                    $HOME/.gitconfig
 
+~/.gitconfig.local              (not in repo, created manually per device)
+  [user]
+      email = you@example.com
+
 zsh/
   .zshrc                        $HOME/.zshrc
   .config/zsh/prompt/

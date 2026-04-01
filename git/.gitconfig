@@ -1,5 +1,6 @@
 [user]
 	name = Tim Keegan
-	email = tim.keegan@lesmills.com
+[include]
+	path = ~/.gitconfig.local
 [push]
 	autoSetupRemote = true
