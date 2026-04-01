@@ -1,0 +1,17 @@
+[general]
+import = ["~/.config/alacritty/dracula.toml"]
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Iosevka Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "Iosevka Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "Iosevka Nerd Font Mono"
+style = "Italic"
