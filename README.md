@@ -73,7 +73,20 @@ stow --target="$HOME" alacritty claude git nvim zellij zsh
 
 # How To
 
-TODO - simple instructions for how to do common things on this project
+## Adding new config
+
+1. Create a top-level directory for the tool (e.g. `mytool/`)
+2. Inside it, mirror the path where the config should live relative to `$HOME`.
+   For example, if the config belongs at `~/.config/mytool/config.toml`, create
+   `mytool/.config/mytool/config.toml`
+3. Add the new directory name to the `stow` command and re-run it:
+
+```shell
+stow --target="$HOME" alacritty claude git mytool nvim zellij zsh
+```
+
+Stow will create a symlink from `$HOME/.config/mytool/config.toml` to the file in
+this repo.
 
 # Reference
 
