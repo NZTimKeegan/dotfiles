@@ -18,7 +18,7 @@ _comp_options+=(globdots)
 ########################
 # PROMPT CUSTOMISATION #
 ########################
-fpath=($HOME/tim.keegan/.config/zsh/prompt $fpath)
+fpath=($HOME/.config/zsh/prompt $fpath)
 autoload -Uz prompt_setup; prompt_setup
 
 ##################
