@@ -1,0 +1,5 @@
+[user]
+	name = Tim Keegan
+	email = tim.keegan@lesmills.com
+[push]
+	autoSetupRemote = true

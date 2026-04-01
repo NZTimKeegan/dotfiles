@@ -3,7 +3,8 @@
 This is where I keep my dotfiles. The setup is intended to be portable across
 all my devices, and manages the following:
 
-- ZSH
+- git
+- zsh
 
 ## Getting Started
 
@@ -25,7 +26,7 @@ command from the root of this repo to symlink the config into the right
 places:
 
 ```shell
-stow --target="$HOME" zsh
+stow --target="$HOME" git zsh
 ```
 
 # How To
@@ -40,9 +41,13 @@ The relationships between the files in this project and their targets on the
 host machine are:
 
 ```
+git/
+  .gitconfig                    $HOME/.gitconfig
+
 zsh/
-  .zshrc                                         $HOME/.zshrc
-  .config/zsh/prompt/prompt_setup                $HOME/.config/zsh/prompt/prompt_setup
+  .zshrc                        $HOME/.zshrc
+  .config/zsh/prompt/
+    prompt_setup                $HOME/.config/zsh/prompt/prompt_setup
 ```
 
 # Background
