@@ -4,6 +4,7 @@ This is where I keep my dotfiles. The setup is intended to be portable across
 all my devices, and manages the following:
 
 - git
+- nvim (see [nvim/README.md](nvim/README.md))
 - zsh
 
 ## Getting Started
@@ -23,9 +24,17 @@ Create `~/.gitconfig.local` with your email address for this device:
     email = you@example.com
 ```
 
+#### Neovim
+
+Install from the [releases page](https://github.com/neovim/neovim/releases).
+
 #### Path
 
 Make sure `$HOME/.local/bin` is on your `PATH`.
+
+#### Treesitter
+
+Install from the [releases page](https://github.com/tree-sitter/tree-sitter/releases).
 
 #### Stow
 
@@ -48,7 +57,7 @@ Run the following command from the root of this repo to symlink the config
 into the right places:
 
 ```shell
-stow --target="$HOME" git zsh
+stow --target="$HOME" git nvim zsh
 ```
 
 # How To
@@ -65,6 +74,9 @@ host machine are:
 ```
 git/
   .gitconfig                    $HOME/.gitconfig
+
+nvim/
+  .config/nvim/                 $HOME/.config/nvim/
 
 zsh/
   .zshrc                        $HOME/.zshrc
