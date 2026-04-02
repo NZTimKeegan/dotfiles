@@ -25,6 +25,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -55,6 +56,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'debugpy',
       },
     }
 
@@ -97,6 +99,22 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    -- Install python specific config
+    -- Use the Python from the project's uv virtualenv if present, else fall back to system python3
+    local venv_python = vim.fn.getcwd() .. '/.venv/bin/python'
+    local python = vim.fn.filereadable(venv_python) == 1 and venv_python or 'python3'
+    require('dap-python').setup(python)
+
+    dap.configurations.python = {
+      {
+        type = 'python',
+        request = 'launch',
+        name = 'Debug Tests (pytest)',
+        module = 'pytest',
+        args = { '${file}' },
+      },
+    }
 
     -- Install golang specific config
     require('dap-go').setup {
