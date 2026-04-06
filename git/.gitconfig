@@ -1,6 +1,11 @@
 [user]
 	name = Tim Keegan
+
 [include]
 	path = ~/.gitconfig.local
+
+[core]
+	editor = nvim
+
 [push]
 	autoSetupRemote = true
