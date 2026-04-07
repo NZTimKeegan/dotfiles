@@ -1,5 +1,32 @@
 prompt_setup() {
-  PROMPT=λ' %~ '
-}
+  setopt PROMPT_SUBST
 
+  _git_rprompt() {
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null) || { _GIT_RPROMPT=''; return; }
+
+    local info="%F{cyan} ${branch}%f"
+
+    # Uncommitted changes (staged, unstaged, or untracked)
+    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+      info+=" %F{yellow}●%f"
+    fi
+
+    # Unpushed commits — ↑N if upstream exists, ↑ if no upstream set
+    if git rev-parse '@{u}' &>/dev/null; then
+      local ahead
+      ahead=$(git rev-list '@{u}..' --count 2>/dev/null)
+      [[ $ahead -gt 0 ]] && info+=" %F{red}↑${ahead}%f"
+    else
+      info+=" %F{red}↑%f"
+    fi
+
+    _GIT_RPROMPT="$info"
+  }
+
+  precmd_functions+=(_git_rprompt)
+
+  PROMPT=λ' %~ '
+  RPROMPT='${_GIT_RPROMPT}'
+}
 prompt_setup
