@@ -804,7 +804,6 @@ require('lazy').setup({
     },
   },
 
-
   -- Highlight todo, notes, etc in comments
   {
     'folke/todo-comments.nvim',
@@ -903,6 +902,18 @@ require('lazy').setup({
         end,
       })
     end,
+  },
+
+  -- Devcontainer
+  -- Source: https://codeberg.org/esensar/nvim-dev-container
+  {
+    'https://codeberg.org/esensar/nvim-dev-container',
+    main = 'devcontainer',
+    opts = {
+      container_runtime = 'podman',
+      compose_command = 'podman-compose',
+      log_level = 'debug',
+    },
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
