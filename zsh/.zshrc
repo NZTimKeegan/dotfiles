@@ -12,6 +12,9 @@ if [ -f '/Users/tim.keegan/Library/Group Containers/FELUD555VC.group.com.egnyte.
 # Initialise completion system
 autoload -U compinit; compinit
 
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}'
+
 # Enable completing dotfiles
 _comp_options+=(globdots)
 
