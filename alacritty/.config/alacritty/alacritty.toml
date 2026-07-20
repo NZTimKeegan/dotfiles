@@ -19,3 +19,10 @@ style = "Italic"
 [window]
 decorations = "None"
 startup_mode = "Maximized"
+
+# Shift+Return sends ESC+CR instead of a plain newline, so multiline-aware
+# programs treat it as "insert a newline" rather than submit.
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
