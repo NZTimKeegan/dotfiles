@@ -13,5 +13,7 @@
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true
-  }
+  },
+  "effortLevel": "high",
+  "theme": "dark-ansi"
 }
