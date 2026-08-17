@@ -1,32 +1,54 @@
 prompt_setup() {
   setopt PROMPT_SUBST
 
-  _git_rprompt() {
+  _git_context_line() {
     local branch
-    branch=$(git symbolic-ref --short HEAD 2>/dev/null) || { _GIT_RPROMPT=''; return; }
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null) || { _GIT_INFO=''; _GIT_INFO_PLAIN=''; return; }
 
     local info="%F{cyan} ${branch}%f"
+    local plain=" ${branch}"
 
     # Uncommitted changes (staged, unstaged, or untracked)
     if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
       info+=" %F{yellow}●%f"
+      plain+=" ●"
     fi
 
     # Unpushed commits — ↑N if upstream exists, ↑ if no upstream set
     if git rev-parse '@{u}' &>/dev/null; then
       local ahead
       ahead=$(git rev-list '@{u}..' --count 2>/dev/null)
-      [[ $ahead -gt 0 ]] && info+=" %F{red}↑${ahead}%f"
+      if [[ $ahead -gt 0 ]]; then
+        info+=" %F{red}↑${ahead}%f"
+        plain+=" ↑${ahead}"
+      fi
     else
       info+=" %F{red}↑%f"
+      plain+=" ↑"
     fi
 
-    _GIT_RPROMPT="$info"
+    _GIT_INFO="$info"
+    _GIT_INFO_PLAIN="$plain"
   }
 
-  precmd_functions+=(_git_rprompt)
+  _prompt_precmd() {
+    _git_context_line
 
-  PROMPT=λ' %~ '
-  RPROMPT='${_GIT_RPROMPT}'
+    local cwd=${(%)${:-%~}}
+    local pad=0
+    if [[ -n $_GIT_INFO_PLAIN ]]; then
+      pad=$(( COLUMNS - ${#cwd} - ${#_GIT_INFO_PLAIN} ))
+      (( pad < 1 )) && pad=1
+    fi
+    local padstr
+    printf -v padstr '%*s' "$pad" ''
+
+    print -P "%~${padstr}${_GIT_INFO}"
+  }
+
+  precmd_functions+=(_prompt_precmd)
+
+  PROMPT=λ' '
+  RPROMPT=''
 }
 prompt_setup
