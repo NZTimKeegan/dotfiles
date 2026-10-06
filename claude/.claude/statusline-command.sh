@@ -15,7 +15,7 @@ git_branch=$(git -C "$cwd" rev-parse --abbrev-ref HEAD 2>/dev/null)
 line1="λ $short_cwd"
 
 if [ -n "$git_branch" ]; then
-  line1="$line1 | $git_branch"
+  line1="$line1 [$git_branch]"
 fi
 
 # Line 2: model and context

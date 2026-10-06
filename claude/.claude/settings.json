@@ -12,8 +12,12 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "dev-team@bfinster": true,
+    "marketplace-dev@bfinster": true,
+    "security-assessment@bfinster": true
   },
   "effortLevel": "high",
-  "theme": "dark-ansi"
+  "theme": "dark-ansi",
+  "editorMode": "vim"
 }
