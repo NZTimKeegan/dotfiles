@@ -11,20 +11,22 @@ short_cwd=$(echo "$cwd" | sed "s|^$home|~|")
 # Get git branch if in a repo
 git_branch=$(git -C "$cwd" rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-# Build status parts
-status="λ $short_cwd"
+# Line 1: folder and branch
+line1="λ $short_cwd"
 
 if [ -n "$git_branch" ]; then
-  status="$status [$git_branch]"
+  line1="$line1 | $git_branch"
 fi
 
-if [ -n "$model" ]; then
-  status="$status  $model"
-fi
+# Line 2: model and context
+line2="$model"
 
 if [ -n "$remaining" ]; then
   remaining_int=$(printf '%.0f' "$remaining")
-  status="$status  ctx: ${remaining_int}%"
+  line2="${line2:+$line2 | }ctx: ${remaining_int}%"
 fi
 
-printf '%s' "$status"
+printf '%s' "$line1"
+if [ -n "$line2" ]; then
+  printf '\n%s' "$line2"
+fi
