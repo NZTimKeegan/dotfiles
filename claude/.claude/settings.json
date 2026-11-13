@@ -1,5 +1,30 @@
 {
+  "agentPushNotifEnabled": true,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "editorMode": "vim",
+  "effortLevel": "high",
+  "enabledPlugins": {
+    "dev-team@bfinster": true,
+    "marketplace-dev@bfinster": true,
+    "security-assessment@bfinster": true
+  },
+  "model": "opus",
   "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git rev-parse)",
+      "Bash(git status)",
+      "Bash(mise run *)"
+    ],
+    "ask": [
+      "Bash(git push *)"
+    ],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
@@ -7,17 +32,13 @@
       "Read(~/.ssh/**)"
     ]
   },
+  "skipWorkflowUsageWarning": true,
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
-    "dev-team@bfinster": true,
-    "marketplace-dev@bfinster": true,
-    "security-assessment@bfinster": true
-  },
-  "effortLevel": "high",
   "theme": "dark-ansi",
-  "editorMode": "vim"
+  "worktree": {
+    "baseRef": "head"
+  }
 }
