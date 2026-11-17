@@ -15,6 +15,14 @@
   "model": "opus",
   "permissions": {
     "allow": [
+      "Bash(curl http://0.0.0.0:*)",
+      "Bash(curl http://127.0.0.1:*)",
+      "Bash(curl http://[::1]:*)",
+      "Bash(curl http://localhost:*)",
+      "Bash(curl https://0.0.0.0:*)",
+      "Bash(curl https://127.0.0.1:*)",
+      "Bash(curl https://[::1]:*)",
+      "Bash(curl https://localhost:*)",
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git diff *)",
