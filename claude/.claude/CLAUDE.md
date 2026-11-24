@@ -2,9 +2,12 @@
 
 ## Issue attachments for specs and plans
 
-When `/dev-team:specs` or `/dev-team:plan` writes a spec (`docs/specs/*.md`)
-or plan (`plans/*.md`), attach the file to the current issue by default:
+When the user approves a plan (`plans/*.md`) written by `/dev-team:plan`,
+attach the plan and its spec files (`docs/specs/*.md`, from
+`/dev-team:specs`) to the current issue by default:
 
+- Don't upload drafts. Upload nothing while the specs or plan are still being
+  written or reviewed, or if the plan is rejected.
 - Take the issue tracker key from the current git branch name (e.g.
   `feature/DTA-5954/...` -> `DTA-5954`). If the branch has no key, ask once for
   the issue key.
